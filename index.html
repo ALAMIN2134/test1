@@ -1,0 +1,122 @@
+<!-- 9 February,2025.This is my first HTML project -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Electricity Cost Calculator by Mohammed Alamin -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Cost Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2 class="text-center mb-4">⚡ Electricity Cost Calculator</h2>
+
+        <!-- Main Input Section -->
+        <div class="mb-4">
+            <h4 class="section-title">Basic Information</h4>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Month/Year</label>
+                    <input type="month" id="monthYear" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Number of Recharges</label>
+                    <input type="number" id="numRecharges" class="form-control" min="1" value="  ">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Total Units Consumed</label>
+                    <input type="number" id="totalUnits" class="form-control" placeholder="Type Meter 820" step="0.01" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Total Amount Spent (৳)</label>
+                    <input type="number" id="totalAmount" class="form-control" placeholder="Type Meter 923" step="0.01" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tax Inputs Section -->
+        <div class="mb-4" id="taxSection">
+            <h4 class="section-title">Tax Details</h4>
+            <div id="taxInputs"></div>
+        </div>
+
+        <!-- Sub-meter Sections -->
+        <div class="mb-4">
+            <h4 class="section-title">Sub-meter Readings</h4>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <h5>Sub-meter 1 (Alamin)</h5>
+                        <input type="number" class="form-control mb-2" id="sub1Start" placeholder="Start Reading">
+                        <input type="number" class="form-control" id="sub1End" placeholder="End Reading">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <h5>Sub-meter 2</h5>
+                        <input type="number" class="form-control mb-2" id="sub2Start" placeholder="Start Reading">
+                        <input type="number" class="form-control" id="sub2End" placeholder="End Reading">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="mb-4">
+            <button class="btn btn-primary w-100 mb-3" onclick="calculate()">
+                <i class="fas fa-calculator calculate-icon"></i>
+                Calculate
+            </button>
+            <button class="btn btn-success w-100 mb-3" onclick="generatePDF()" id="generatePdf">
+                <i class="fas fa-download download-icon"></i>
+                Download Professional Report
+            </button>
+        </div>
+
+        <!-- PDF Template (hidden) -->
+        <div class="pdf-template" id="pdfTemplate">
+            <div class="pdf-header">
+                <img src="your-logo.png" class="brand-logo-pdf">
+                <div class="header-info">
+                    <h2>MA Production Electricity Report</h2>
+                    <p id="pdfDate"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results"></div>
+
+        <!-- Branding Footer --> 
+        <footer class="branding-footer">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img src="https://assets.onecompiler.app/438g3hxth/438npn65w/mapro.png" 
+                            class="brand-logo me-3" 
+                            alt="MA Production Logo"
+                            width="35"
+                            height="35">
+                        <div class="credits">
+                            <p class="mb-0">Developed by MA Production</p>
+                            <p class="mb-0 text-muted small">© 2025 All Rights Reserved</p>
+                        </div>
+                    </div>
+                    <div class="version-info">
+                        <span class="badge bg-secondary">v1.0.0</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> <!-- End of calculator-container -->
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Electricity Cost Calculator by Mohammed Alamin -->
+</body>
+</html>
+
