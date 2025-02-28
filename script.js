@@ -266,7 +266,7 @@ function generatePDF() {
         yPos += 7;
         
         // Sub-meter 1 details
-        doc.text(`- Sub-meter 1:`, margin, yPos);
+        doc.text(`- Sub-meter 1 (ALAMIN):`, margin, yPos);
         yPos += 7;
         doc.text(`  Start Reading (${formData.sub1Start}) || End Reading (${formData.sub1End})`, margin + 5, yPos);
         yPos += 7;
